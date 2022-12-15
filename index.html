@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Library of you</title>
+  </head>
+  <body class="while-add">
+    <header>
+      <h1>Library</h1>
+      <button type="button" id="toggle-theme">Toggle Dark</button>
+    </header>
+    <main>
+      <div class="container">
+        <div id="button-container">
+          <button type="button" id="addBook">Add New book</button>
+        </div>
+        <div id="bookContainer">
+          <!-- <span class="light-text">Here is nothing add book:(</span> -->
+          <!-- <div class="book-card">
+            <div class="book-title">Title</div>
+            <div class="book-author">
+              <span class="light-text">by</span> Chintan
+            </div>
+            <div class="book-page">
+              <span class="light-text">Pages:</span> 122
+            </div>
+            <div class="read-status">
+              <span><span class="light-text">Read:</span> Yes</span>
+              <button
+                type="button"
+                id="change-read-status"
+                class="change-read-status-yes"
+                changeReadStateAttribute
+              >
+                Not Read
+              </button>
+            </div>
+            <button type="button" id="remove-book" removeAttributes>
+              Remove Book
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>2022 &copy;Copyright reserved by Chintan Parmar.</p>
+    </footer>
+    <div id="add-form-container" class="none">
+      <h3>Add New Book</h3>
+      <form id="addForm">
+        <input
+          type="text"
+          name="title"
+          id="titleInput"
+          class="input"
+          placeholder="Title of Book"
+          maxlength="70"
+          required
+        />
+        <input
+          type="text"
+          name="author"
+          id="authorInput"
+          class="input"
+          placeholder="Author of Book"
+          maxlength="70"
+          required
+        />
+        <input
+          type="number"
+          name="page"
+          id="pageInput"
+          class="input"
+          placeholder="Pages of Book"
+          min="4"
+          required
+        />
+        <div id="read-checkbox">
+          <label for="readCheckBox"
+            >Have you read it?
+            <input type="checkbox" name="readStatus" id="readCheckBox" />
+          </label>
+        </div>
+        <button type="submit" id="addBookSubmit">Add Book</button>
+      </form>
+    </div>
+    <div id="overlay-window" class="none"></div>
+  </body>
+</html>

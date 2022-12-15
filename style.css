@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap");
+
+:root {
+  --body-bg-color: rgb(226, 226, 226);
+  --all-box-shadow-color: black;
+  --all-box-shadow: 0px 0px 22px -10px var(--all-box-shadow-color);
+
+  --header-footer-bg-color: white;
+  --header-footer-font-color: black;
+
+  --toggle-bg-color: black;
+  --toggle-font-color: white;
+
+  --add-btn-bg-color: whitesmoke;
+  --add-btn-font-color: black;
+  --add-bnt-border-color: black;
+
+  --card-bg-color: white;
+  --card-font-color: black;
+
+  --popup-bg-color: white;
+  --popup-font-color: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Signika Negative", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-bg-color);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 20px;
+  height: 9vh;
+
+  background-color: var(--header-footer-bg-color);
+  box-shadow: var(--all-box-shadow);
+
+  font-size: 1.3rem;
+}
+
+#toggle-theme {
+  border: none;
+  border-radius: 20px;
+
+  background-color: var(--toggle-bg-color);
+  color: var(--toggle-font-color);
+
+  width: 11%;
+  height: 100%;
+
+  font-size: 3vmin;
+}
+#toggle-theme:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+#toggle-theme:focus {
+  outline: none;
+}
+#toggle-theme:active {
+  opacity: 0.8;
+}
+
+main {
+  height: calc(100vh - 9vh - 5vh);
+  padding: 1vmin;
+  overflow-y: auto;
+}
+
+#button-container {
+  margin: 1vh 0;
+}
+
+#addBook {
+  display: block;
+  width: 12vw;
+  height: 7vh;
+  font-size: 3vmin;
+  cursor: pointer;
+  margin: auto;
+}
+#addBook:focus {
+  outline: none;
+}
+
+#bookContainer {
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5vmin;
+  padding: 1vmax;
+}
+
+.book-card {
+  background-color: var(--card-bg-color);
+  box-shadow: var(--all-box-shadow);
+  border-radius: 10px;
+  padding: 1% 2%;
+}
+.book-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 3% auto;
+}
+.book-author {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 2% auto;
+}
+.book-page {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 3% auto;
+}
+.read-status {
+  font-size: 1.4rem;
+  margin: 2% auto;
+}
+
+#change-read-status {
+  margin: 0 10px;
+  padding: 3px 8px;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#change-read-status:focus {
+  outline: none;
+}
+/* Change read button if not read*/
+.change-read-status-yes {
+  background-color: lightcoral;
+}
+.change-read-status-yes:hover {
+  background-color: rgb(252, 92, 92);
+  cursor: pointer;
+}
+.change-read-status-yes:active {
+  background-color: rgb(252, 53, 53);
+}
+
+/* Change read button if read */
+.change-read-status-not {
+  background-color: rgb(112, 206, 112);
+}
+.change-read-status-not:hover {
+  background-color: rgb(68, 224, 68);
+  cursor: pointer;
+}
+.change-read-status-not:active {
+  background-color: rgb(0, 248, 0);
+}
+
+#remove-book {
+  margin: 5% auto;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 1.4rem;
+  border: none;
+  background-color: crimson;
+  border-radius: 12px;
+  color: white;
+}
+#remove-book:hover {
+  background-color: rgb(255, 84, 119);
+  cursor: pointer;
+}
+#remove-book:active {
+  background-color: rgb(252, 48, 88);
+}
+#remove-book:focus {
+  outline: none;
+}
+
+footer {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 5vh;
+  width: 100vw;
+
+  background-color: var(--header-footer-bg-color);
+  box-shadow: var(--all-box-shadow);
+}
+
+#add-form-container {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  z-index: 2;
+  top: calc(50% - (300px / 2));
+  left: calc(50% - (300px / 2));
+  background-color: var(--popup-bg-color);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.4rem;
+  box-shadow: var(--all-box-shadow);
+}
+
+#addForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.input {
+  display: inline-block;
+  padding: 2px 5px;
+  font-size: 1.2rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+label[for="readCheckBox"] {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+#addBookSubmit {
+  padding: 5px 10px;
+  margin: auto;
+  margin-top: 10px;
+  width: 60%;
+  height: 20%;
+  font-size: 1.2rem;
+  background-color: rgb(91, 156, 91);
+  border: none;
+  border-radius: 12px;
+  color: white;
+}
+
+#addBookSubmit:hover {
+  cursor: pointer;
+  background-color: rgb(51, 146, 51);
+}
+#addBookSubmit:focus {
+  outline: none;
+}
+#addBookSubmit:active {
+  background-color: green;
+}
+
+#readCheckBox {
+  cursor: pointer;
+  margin: 0 6px;
+}
+
+#overlay-window {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.39);
+}
+/* Utility class */
+.light-text {
+  color: rgb(150, 150, 150);
+  font-size: 1rem;
+  font-weight: lighter;
+}
+.none {
+  display: none;
+}
