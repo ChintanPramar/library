@@ -1,14 +1,17 @@
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read} read yet`;
-  };
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  changeRead(isRead) {
+    this.read = isRead;
+    return this.read;
+  }
 }
 
-function createBookDisplay(book) {
+const createBookDisplay = (book) => {
   const bookCardDiv = document.createElement("div");
   const bookTitleDiv = document.createElement("div");
   const bookAuthorDiv = document.createElement("div");
@@ -66,7 +69,7 @@ function createBookDisplay(book) {
   bookContainerElement.appendChild(bookCardDiv);
 }
 
-function updateBook() {
+const updateBook = () => {
   bookContainerElement.innerHTML = "";
   for (const book of library) {
     createBookDisplay(book);
@@ -81,7 +84,7 @@ function updateBook() {
   });
 }
 
-function removeCard(event) {
+const removeCard = (event) => {
   let parentTitle = event.target.parentNode.children[0].textContent.toString();
   let parentAuthor = event.target.parentNode.children[1].lastChild.textContent
     .toString()
@@ -101,7 +104,7 @@ function removeCard(event) {
   event.target.parentElement.remove();
 }
 
-function addBook(event) {
+const  addBook = (event) => {
   if (
     bookTitlePopupElement.value === "" ||
     bookAuthorPopupElement.value === "" ||
@@ -121,13 +124,13 @@ function addBook(event) {
   onOfPopupOverlay();
 }
 
-function onOfPopupOverlay() {
+const onOfPopupOverlay = () => {
   formElement.reset();
   popupWindow.classList.toggle("none");
   overlayElement.classList.toggle("none");
 }
 
-function changeReadStatus(event) {
+const changeReadStatus = (event) => {
   let parentTitle =
     event.target.parentNode.parentNode.children[0].textContent.toString();
   let parentAuthor =
@@ -162,6 +165,7 @@ function changeReadStatus(event) {
     });
   }
 }
+
 // book container
 const bookContainerElement = document.getElementById("bookContainer");
 const addBookButton = document.getElementById("addBook");
@@ -180,10 +184,6 @@ const formElement = document.getElementById("addForm");
 const overlayElement = document.querySelector("#overlay-window");
 
 let library = [];
-Book.prototype.changeRead = (isRead) => {
-  this.read = isRead;
-  return this.read;
-};
 
 addBookButton.addEventListener("click", onOfPopupOverlay);
 overlayElement.addEventListener("click", onOfPopupOverlay);
